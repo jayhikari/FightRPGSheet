@@ -8,6 +8,7 @@ input[type=radio].sheet-isNPC:checked ~ .sheet-npcPg
 	display: block;
 }
 
+/* -- Secondary Sheet Buttons -- */
 .sheet-qualities,
 .sheet-skills,
 .sheet-moves {
@@ -20,6 +21,7 @@ input[type=radio].sheet-isNPC:checked ~ .sheet-npcPg
 	display: block;
 }
 
+/* -- Hide Section Toggles -- */
 input.sheet-bioCont-toggle ~ div.sheet-bioCont-section,
 input.sheet-qualities-toggle ~ div.sheet-qualities-section,
 input.sheet-weakness-toggle ~ div.sheet-weakness-section,
@@ -34,6 +36,7 @@ input.sheet-quirks-toggle:checked ~ div.sheet-quirks-section {
     display: block;
 }
 
+/* -- Resizing and recoloring Things -- */
 textarea {
     width: 300px;
     height: 80px;
