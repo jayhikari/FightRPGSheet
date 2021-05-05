@@ -1,0 +1,607 @@
+﻿<div class="sheet-full">
+	<input type="radio" class="sheet-isPlayer" value="mainPg" name="attr_tab" checked="true">Player Character
+	<input type="radio" class="sheet-isNPC" value="secPg" name="attr_tab">NPC Sheet
+
+	<div class="sheet-character-sheet sheet-charPg">
+
+		<div class="main charSheet">
+			<table>
+				<tr>
+					<td>
+					<h2>Name</h2>
+					</td>
+					<td>
+					<label> | </label>
+					</td>
+					<td>
+					<h2>Power Level</h2>
+					</td>
+					<td>
+					<label> | </label>
+					</td>
+					<td>
+					<h2>Life Bar</h2>
+					</td>
+					<td>
+					<label> | </label>
+					</td>
+					<td>
+					<h2>Fighting Spirit</h2>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+					<input type="text" name="attr_character_name">
+					</td>
+					<td>
+					<label> | </label>
+					</td>
+					<td>
+					<input type="number" name="attr_powLvl" value="1">
+					</td>
+					<td>
+					<label> | </label>
+					</td>
+					<td>
+					<input type="number" name="attr_lifeCurr" value="30">
+					<input type="number" name="attr_lifeMax" value="30">
+					</td>
+					<td>
+					<label> | </label>
+					</td>
+					<td>
+					<input type="number" name="attr_fightSpt" value="10">
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<div class="char-qual section">
+			<table>
+				<br>
+				<tr>
+					<td>
+					<h3>Strength</h3>
+					</td>
+					<td>
+					<label> | </label>
+					</td>
+					<td>
+					<h3>Speed</h3>
+					</td>
+					<td>
+					<label> | </label>
+					</td>
+					<td>
+					<h3>Stamina</h3>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+					<input type="radio" name="attr_qualStr" value="-2">-1
+					<input type="radio" name="attr_qualStr" value="0" checked="true">0
+					<input type="radio" name="attr_qualStr" value="2">1
+					<input type="radio" name="attr_qualStr" value="4">2
+					</td>
+					<td>
+					<label> | </label>
+					</td>
+					<td>
+					<input type="radio" name="attr_qualSpd" value="-2">-1
+					<input type="radio" name="attr_qualSpd" value="0" checked="true">0
+					<input type="radio" name="attr_qualSpd" value="2">1
+					<input type="radio" name="attr_qualSpd" value="4">2
+					</td>
+					<td>
+					<label> | </label>
+					</td>
+					<td>
+					<input type="radio" name="attr_qualSta" value="-2">-1
+					<input type="radio" name="attr_qualSta" value="0" checked="true">0
+					<input type="radio" name="attr_qualSta" value="2">1
+					<input type="radio" name="attr_qualSta" value="4">2
+					</td>
+				</tr>
+			</table>
+
+			<table>
+				<br>
+				<br>
+				<tr>
+					<td>
+					<h3>Initiative</h3>
+					</td>
+					<td>
+					<label> | </label>
+					</td>
+					<td>
+					<h3>Roll</h3>
+					</td>
+					<td>
+					<label> | </label>
+					</td>
+					<td>
+					<h3>Control</h3>
+					</td>
+					<td>
+					<label> | </label>
+					</td>
+					<td>
+					<h3>Roll</h3>
+					</td>
+				</tr>
+
+				<tr>
+					<td>
+					<input type="radio" name="attr_qualIni" value="-2">-1
+					<input type="radio" name="attr_qualIni" value="0" checked="true">0
+					<input type="radio" name="attr_qualIni" value="2">1
+					<input type="radio" name="attr_qualIni" value="4">2
+					</td>
+					<td>
+					<label> | </label>
+					</td>
+					<td>
+					<button type="roll" name="attr_rollIni" value="&{template:default} {{name=Initiative}} {{Result=[[?{Choose Roll:|
+					                            Flat 1, [[1]]|
+					                            d4, [[1d4]]|
+					                            d6, [[1d6]]|
+					                            d8, [[1d8]]|
+					                            d10, [[1d10]]|
+					                            d12, [[1d12]]} + ?{Additional bonus?|0} &{tracker}]]}}" ></button>
+					</td>
+					<td>
+					<label> | </label>
+					</td>
+					<td>
+					<input type="radio" name="attr_qualCtl" value="-2">-1
+					<input type="radio" name="attr_qualCtl" value="0" checked="true">0
+					<input type="radio" name="attr_qualCtl" value="2">1
+					<input type="radio" name="attr_qualCtl" value="4">2
+					</td>
+					<td>
+					<label> | </label>
+					</td>
+					<td>
+					<button type="roll" name="attr_rollCtl" value="&{template:default} {{name=Control}} {{Result=[[?{Choose Roll:|
+					                            Flat 1, [[1]]|
+					                            d4, [[1d4]]|
+					                            d6, [[1d6]]|
+					                            d8, [[1d8]]|
+					                            d10, [[1d10]]|
+					                            d12, [[1d12]]} + ?{Additional bonus?|0}]]}}" ></button>
+			        </td>
+				</tr>
+				<tr>
+				    <td>
+				        <h3>Stun Threshold: </h3>
+				    </td>
+				    <td>
+				        <tr>
+				            <td>
+				            <h5>Base Mod:</h5>
+				            </td>
+				            <td>
+				            <input type="number" name="attr_stunMod" value="0">
+				            </td>
+				        </tr>
+				        <tr>
+				            <td>
+				            <h5>Hits:</h5>
+				            </td>
+				            <td>
+				            <input type="number" name="attr_stunHit" value="0">
+				            </td>
+				        </tr>
+				    </td>
+				    <td>
+				        <input type="number" name="attr_stunThres" value="@{powLvl} + 4 + @{stunMod} + (@{stunHit} * 2)" disabled="true">
+				    </td>
+				</tr>
+			</table>
+		</div>
+
+		<br>
+		<br>
+
+		<div class="sheetButtons">
+			<button type="action" name="act_qualities">Qualities and Bio</button>
+			<button type="action" name="act_skills">Skills</button>
+			<button type="action" name="act_moves">Moves</button>
+		</div>
+		<input type="hidden" class="sheet-tabstoggle" name="attr_sheetTab" value="qualities"  />
+
+		<div class="sheet-qualities">
+		    <div class="charQual">
+		        <table>
+		            <tr>
+		                <td>
+		                    <h3>Bio</h3>
+		                    <input type="checkbox" class="sheet-toggle sheet-bioCont-toggle" checked="checked">Show/Hide
+		                    <div class="sheet-bioCont-section">
+		                        <h4>Appearance</h4>
+		                        <textarea name="attr_appDesc" placeholder="Description"></textarea>
+		                        <table>
+		                            <tr>
+		                                <td>
+    		                                <h4>Reason for Fighting</h4>
+		                                </td>
+                    					<td>
+                    					<label> | </label>
+                    					</td>
+		                                <td>
+    		                                <h4>Opening Pose</h4>
+    		                            </td>
+		                            </tr>
+		                            <tr>
+		                                <td>
+		                                    <textarea name="attr_reasonDesc" placeholder="Description"></textarea>
+		                                </td>
+                    					<td>
+                    					<label> | </label>
+                    					</td>
+		                                <td>
+		                                    <textarea name="attr_opPoseDesc" placeholder="Description"></textarea>
+		                                </td>
+		                            </tr>
+		                            <tr>
+		                                <td>
+		                                    <h4>Purpose</h4>
+		                                </td>
+                    					<td>
+                    					<label> | </label>
+                    					</td>
+		                                <td>
+		                                    <h4>Win Pose</h4>
+		                                </td>
+		                            </tr>
+		                            <tr>
+		                                <td>
+		                                    <textarea name="attr_purpDesc" placeholder="Description"></textarea>
+		                                </td>
+                    					<td>
+                    					<label> | </label>
+                    					</td>
+		                                <td>
+		                                    <textarea name="attr_winPoseDesc" placeholder="Description"></textarea>
+		                                </td>
+		                            </tr>
+		                            <tr>
+		                                <td>
+		                                    <h4>Bloodtype</h4>
+		                                </td>
+                    					<td>
+                    					<label> | </label>
+                    					</td>
+		                                <td>
+		                                    <h4>Win Quote</h4>
+		                                </td>
+		                            </tr>
+		                            <tr>
+		                                <td>
+		                                    <select name="attr_bloodtype1">
+		                                        <option value="pos">+</option>
+		                                        <option value="neg">-</option>
+		                                    </select>
+		                                    <select name="attr_bloodtype2">
+		                                        <option value="a">A</option>
+		                                        <option value="b">B</option>
+		                                        <option value="ab">AB</option>
+		                                        <option value="o">O</option>
+		                                    </select>
+		                                </td>
+                    					<td>
+                    					<label> | </label>
+                    					</td>
+		                                <td>
+		                                    <textarea name="attr_winQuoteDesc" placeholder="Description"></textarea>
+		                                </td>
+		                            </tr>
+		                        </table>
+		                    </div>
+		                </td>
+		            </tr>
+		        </table>
+		        
+		        <br>
+		        <br>
+		        
+		        <table>
+		            <tr>
+		               <h3>Qualities</h3>
+		               <input type="checkbox" class="sheet-toggle sheet-qualities-toggle" checked="checked">Show/Hide
+		               <div class="sheet-qualities-section">
+		                    <input type="text" name="attr_qual1" placeholder="Quality">
+	                        <textarea name="attr_qual1Desc" placeholder="Description"></textarea>
+	                        <input type="text" name="attr_qual2" placeholder="Quality">
+	                        <textarea name="attr_qual2Desc" placeholder="Description"></textarea>
+	                        <input type="text" name="attr_qual3" placeholder="Quality">
+	                        <textarea name="attr_qual3Desc" placeholder="Description"></textarea>
+	                        <input type="text" name="attr_qual4" placeholder="Quality">
+	                        <textarea name="attr_qual4Desc" placeholder="Description"></textarea>
+	                        <fieldset class="repeating_qualities">
+	                            <input type="text" name="attr_qualX" placeholder="Quality">
+	                            <textarea name="attr_qualXDesc" placeholder="Description"></textarea>
+	                        </fieldset>
+	                    </div>
+                    </tr>
+                    <br>
+                    <br>
+                    <tr>
+	                    <h3>Weaknesses</h3>
+	                    <input type="checkbox" class="sheet-toggle sheet-weakness-toggle" checked="checked">Show/Hide
+	                    <div class="sheet-weakness-section">
+	                        <fieldset class="repeating_weakness">
+	                            <input type="text" name="attr_weakX" placeholder="Weakness">
+	                            <textarea name="attr_weakXDesc" placeholder="Description"></textarea>
+	                        </fieldset>
+	                    </div>
+                    </tr>
+                    <br>
+                    <br>
+                    <tr>
+	                    <h3>Quirks</h3>
+	                    <input type="checkbox" class="sheet-toggle sheet-quirks-toggle" checked="checked">Show/Hide
+	                    <div class="sheet-quirks-section">
+	                        <fieldset class="repeating_quirk">
+	                            <input type="text" name="attr_quirkX" placeholder="Quirk">
+	                            <textarea name="attr_quirkXDesc" placeholder="Description"></textarea>
+	                        </fieldset>
+	                    </div>
+		            </tr>
+		        </table>
+		        
+		    </div>
+		</div>
+
+		<div class="sheet-skills">
+		    <table>
+		        <td>
+		            <h3>Combat Skills</h3>
+		            <div class="sheet-combatSk-section">
+		                <table>
+		                    <tr>
+		                        <td>
+		                            <h5>Defense</h5>
+		                        </td>
+		                        <td>
+		                            <input type="number" name="attr_defLvl" value="0">
+		                        </td>
+		                        <td>
+		                            <button type="roll" name="attr_defRoll"  value="&{template:default} {{name=Defense}} {{Result=[[1d10 + @{defLvl} + ?{Additional Bonus?|0}]]}}"  ></button>
+		                        </td>
+		                    </tr>
+		                    <tr>
+		                        <td>
+		                            <h5>Evasion</h5>
+		                        </td>
+		                        <td>
+		                            <input type="number" name="attr_evaLvl" value="0">
+		                        </td>
+		                        <td>
+		                            <button type="roll" name="attr_evaRoll"  value="&{template:default} {{name=Evasion}} {{Result=[[1d10 + (@{evaLvl} + ?{Additional Bonus?|0})]]}}"></button>  
+		                        </td>
+		                    </tr>
+		                    <tr>
+		                        <td>
+		                            <h5>Tactics</h5>
+		                        </td>
+		                        <td>
+		                            <input type="number" name="attr_tacLvl" value="0">
+		                        </td>
+		                        <td>
+		                            <button type="roll" name="attr_tacRoll"  value="&{template:default} {{name=Tactics}} {{Result=[[1d10+(@{tacLvl} + ?{Additional Bonus?|0})]]}}"></button>  
+		                        </td>
+		                    </tr>
+		                    <tr>
+		                        <td>
+		                            <h5>Ki</h5>
+		                        </td>
+		                        <td>
+		                            <input type="number" name="attr_kiLvl" value="0">
+		                        </td>
+		                        <td>
+		                            <button type="roll" name="attr_kiRoll"  value="&{template:default} {{name=Ki}} {{Result=[[1d10+(@{kiLvl} + ?{Additional Bonus?|0})]]}}"></button>  
+		                        </td>
+		                    </tr>
+		                    <tr>
+		                        <td>
+		                            <h5>Combo</h5>
+		                        </td>
+		                        <td>
+		                            <input type="number" name="attr_comboLvl" value="0">
+		                        </td>
+		                        <td>
+		                            <button type="roll" name="attr_comboRoll"  value="&{template:default} {{name=Combo}} {{Result=[[1d10+(@{comboLvl} + ?{Additional Bonus?|0})]]}}"></button>  
+		                        </td>
+		                    </tr>
+		                </table>
+		            </div>
+		        </td>
+		        <td>
+		            <h3>
+		                <h3>Narrative Skills</h3>
+		                <div class="sheet-narrSk-section">
+		                    <fieldset class="repeating_narrSkills">
+    		                    <table>
+    		                        <td>
+    		                            <input type="text" name="attr_narrSkName" placeholder="Skill">
+    		                        </td>
+    		                        <td>
+    		                            <input type="number" name="attr_narrSkLvl" value="0">
+    		                        </td>
+		                        <td>
+		                            <button type="roll" name="attr_narrSkRoll"  value="&{template:default} {{name=Narrative Skill: @{narrSkName}}} {{Result=[[1d10+(@{narrSkLvl} + ?{Additional Bonus?|0})]]}}"></button>  
+		                        </td>
+    		                    </table>
+		                    </fieldset>
+		                </div>
+		            </h3>
+		        </td>
+		    </table>
+		</div>
+
+		<div class="sheet-moves">
+		    <br>
+		    <table>
+		        <tr>
+		            <td>
+		            <h5>Move: </h5>
+		            </td>
+		            <td>
+		            <input type="text" name="attr_moveName" placeholder="Name">
+		            </td>
+		        </tr>
+    		            <tr>
+        		            <td>
+        		            <h5>Level: </h5>
+        		            </td>
+        		            <td>
+        		            <input type="number" name="attr_moveLvl" value="2" min="2">
+        		            </td>
+        		            <td>
+        		            <h5>Command: </h5>
+        		            </td>
+        		            <td>
+        		            <input type="text" name="attr_moveComm">
+        		            </td>
+        		        </tr>
+        		        <tr>
+        		            <td>
+        		            <h5>Accuracy: </h5>
+        		            </td>
+        		            <td>
+        		            <input type="number" name="attr_moveAcc" value="0">
+        		            </td>
+        		            <td>
+        		            <button type="roll" name="attr_moveAccRoll" value="&{template:default} {{name=@{moveName} Accuracy}} {{Result=[[1d6+(@{moveAcc} + ?{Additional Bonus?|0})]]}}"></button>
+        		            </td>
+        		        </tr>
+        		        <tr>
+        		            <td>
+        		            <h5>Damage: </h5>
+        		            </td>
+        		            <td>
+        		            <select name="attr_moveDmg">
+        		                <option value="1">Flat 1</option>
+        		                <option value="1d4">1d4</option>
+        		                <option value="1d6">1d6</option>
+        		                <option value="1d8">1d8</option>
+        		                <option value="1d10">1d10</option>
+        		                <option value="1d12">1d12</option>
+        		            </select>
+        		            </td>
+        		            <td>
+        		            <button type="roll" name="attr_moveDmgRoll" value="&{template:default} {{name=@{moveName} Damage}} {{Result=[[floor(?{Choose Die:|
+        	                                                                                                                            Flat 1, [[1]]|
+        	                                                                                                                            d4, [[1d4]]|
+        	                                                                                                                            d6, [[1d6]]|
+        	                                                                                                                            d8, [[1d8]]|
+        	                                                                                                                            d10, [[1d10]]|
+        	                                                                                                                            d12, [[1d12]]} * ?{First Attack? (If Flat 1, choose yes)|Yes, 1|No, .5}) + ?{Additional Bonus?|0}
+        	                                                                                                                    ]]}}"></button>
+        		            </td>
+        		        </tr>
+        		        <tr>
+        		            <td>
+        		                <h5>Elements/Liabilities</h5>
+                                <textarea name="attr_moveAdds" placeholder="Elements/Liabilities"></textarea>
+        		            </td>
+        		            <td>
+        		                <h5>Keywords</h5>
+        		                <textarea name="attr_moveKeys" value="Offensive, Normal, Stun, Knockback, Normal Move, Normal Range"></textarea>
+        		            </td>
+        		        </tr>
+		            </table>
+		    <br>
+		    <fieldset class="repeating_moves">
+		    <table>
+		        <tr>
+		            <td>
+		            <h5>Move: </h5>
+		            </td>
+		            <td>
+		            <input type="text" name="attr_moveName" placeholder="Name">
+		            </td>
+		        </tr>
+    		            <tr>
+        		            <td>
+        		            <h5>Level: </h5>
+        		            </td>
+        		            <td>
+        		            <input type="number" name="attr_moveLvl" value="2" min="2">
+        		            </td>
+        		            <td>
+        		            <h5>Command: </h5>
+        		            </td>
+        		            <td>
+        		            <input type="text" name="attr_moveComm">
+        		            </td>
+        		        </tr>
+        		        <tr>
+        		            <td>
+        		            <h5>Accuracy: </h5>
+        		            </td>
+        		            <td>
+        		            <input type="number" name="attr_moveAcc" value="0">
+        		            </td>
+        		            <td>
+        		            <button type="roll" name="attr_moveAccRoll" value="&{template:default} {{name=@{moveName} Accuracy}} {{Result=[[1d6+(@{moveAcc} + ?{Additional Bonus?|0})]]}}"></button>
+        		            </td>
+        		        </tr>
+        		        <tr>
+        		            <td>
+        		            <h5>Damage: </h5>
+        		            </td>
+        		            <td>
+        		            <select name="attr_moveDmg">
+        		                <option value="1">Flat 1</option>
+        		                <option value="1d4">1d4</option>
+        		                <option value="1d6">1d6</option>
+        		                <option value="1d8">1d8</option>
+        		                <option value="1d10">1d10</option>
+        		                <option value="1d12">1d12</option>
+        		            </select>
+        		            </td>
+        		            <td>
+        		            <button type="roll" name="attr_moveDmgRoll" value="&{template:default} {{name=@{moveName} Damage}} {{Result=[[floor(?{Choose Die:|
+        	                                                                                                                            Flat 1, [[1]]|
+        	                                                                                                                            d4, [[1d4]]|
+        	                                                                                                                            d6, [[1d6]]|
+        	                                                                                                                            d8, [[1d8]]|
+        	                                                                                                                            d10, [[1d10]]|
+        	                                                                                                                            d12, [[1d12]]} * ?{First Attack? (If Flat 1, choose yes)|Yes, 1|No, .5}) + ?{Additional Bonus?|0}
+        	                                                                                                                    ]]}}"></button>
+        		            </td>
+        		        </tr>
+        		        <tr>
+        		            <td>
+        		                <h5>Elements/Liabilities</h5>
+                                <textarea name="attr_moveAdds" placeholder="Elements/Liabilities"></textarea>
+        		            </td>
+        		            <td>
+        		                <h5>Keywords</h5>
+        		                <textarea name="attr_moveKeys" value="Offensive, Normal, Stun, Knockback, Normal Move, Normal Range"></textarea>
+        		            </td>
+        		        </tr>
+		            </table>
+    		    <br>
+		    </fieldset>
+	    </div>
+
+		<script type="text/worker">
+			const buttonlist = ["qualities","skills", "moves"];
+			buttonlist.forEach(button => {
+				on(`clicked:${button}`, function() {
+				setAttrs({
+					sheetTab: button
+					});
+				});
+			});
+		</script>
+
+	</div>
+
+</div>

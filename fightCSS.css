@@ -1,0 +1,49 @@
+/* -- Main Radio Buttons -- */
+.sheet-character-sheet {display: none; }
+.sheet-npcChar-Sheet {display: none; }
+
+input[type=radio].sheet-isPlayer:checked ~ .sheet-charPg,
+input[type=radio].sheet-isNPC:checked ~ .sheet-npcPg
+{
+	display: block;
+}
+
+.sheet-qualities,
+.sheet-skills,
+.sheet-moves {
+	display: none;
+}
+
+.sheet-tabstoggle[value="qualities"] ~ .sheet-qualities,
+.sheet-tabstoggle[value="skills"] ~ .sheet-skills,
+.sheet-tabstoggle[value="moves"] ~ .sheet-moves {
+	display: block;
+}
+
+input.sheet-bioCont-toggle ~ div.sheet-bioCont-section,
+input.sheet-qualities-toggle ~ div.sheet-qualities-section,
+input.sheet-weakness-toggle ~ div.sheet-weakness-section,
+input.sheet-quirks-toggle ~ div.sheet-quirks-section {
+    display: none;
+}
+
+input.sheet-bioCont-toggle:checked ~ div.sheet-bioCont-section,
+input.sheet-qualities-toggle:checked ~ div.sheet-qualities-section,
+input.sheet-weakness-toggle:checked ~ div.sheet-weakness-section,
+input.sheet-quirks-toggle:checked ~ div.sheet-quirks-section {
+    display: block;
+}
+
+textarea {
+    width: 300px;
+    height: 80px;
+    background-color: transparent;
+}
+
+select {
+    width: 120px;
+}
+
+::placeholder {
+    color: #D3D3D3;
+}
